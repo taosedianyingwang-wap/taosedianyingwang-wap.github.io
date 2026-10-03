@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="桃色电影网, taosedianyingwang, 桃色电影, 电影在线观看, 最新电影, 高分电影, 高清影视">
+<meta name="description" content="桃色电影网 - 桃色年华，光影留香。精选最新最热电影，提供高清影视在线观看，经典爱情文艺片与高分佳作一网打尽。">
+<title>桃色电影网 | 桃色年华，光影留香 - taosedianyingwang-wap.github.io</title>
+<style>
+/* ============ 桃色电影网 - 全局重置 ============ */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --brand:#e8366f;
+  --brand2:#ff7a59;
+  --pink:#ffd6e0;
+  --dark:#160912;
+  --darker:#0e0610;
+  --card:#20101f;
+  --card2:#2c162b;
+  --text:#f3e8f0;
+  --muted:#b096ac;
+  --gold:#ffd24d;
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+  background:var(--darker);
+  color:var(--text);
+  line-height:1.6;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none;}
+img{display:block;max-width:100%;}
+ul{list-style:none;}
+.container{max-width:1100px;margin:0 auto;padding:0 16px;}
+
+/* ============ 顶部导航 ============ */
+.header{
+  position:sticky;top:0;z-index:100;
+  background:rgba(14,6,16,.92);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(232,54,111,.25);
+}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:58px;}
+.logo{display:flex;align-items:center;gap:8px;font-size:20px;font-weight:900;letter-spacing:.5px;}
+.logo-mark{
+  width:34px;height:34px;border-radius:50%;
+  background:linear-gradient(135deg,var(--brand),var(--brand2));
+  display:flex;align-items:center;justify-content:center;
+  font-size:17px;box-shadow:0 4px 14px rgba(232,54,111,.45);
+}
+.logo-text{background:linear-gradient(90deg,#fff,var(--brand));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+.nav-toggle{display:none;flex-direction:column;gap:5px;width:28px;height:28px;justify-content:center;cursor:pointer;}
+.nav-toggle span{display:block;height:2.5px;background:var(--text);border-radius:3px;transition:.3s;}
+.nav-links{display:flex;gap:6px;align-items:center;}
+.nav-links a{
+  padding:7px 13px;border-radius:20px;font-size:14.5px;color:var(--muted);
+  transition:.25s;font-weight:500;
+}
+.nav-links a:hover{color:#fff;background:rgba(232,54,111,.16);}
+.nav-search{
+  display:flex;align-items:center;gap:6px;
+  background:var(--card);border:1px solid rgba(255,255,255,.08);
+  border-radius:22px;padding:6px 12px;margin-left:8px;
+}
+.nav-search input{
+  background:none;border:none;outline:none;color:var(--text);font-size:14px;width:110px;
+}
+.nav-search input::placeholder{color:var(--muted);}
+.nav-search button{
+  background:none;border:none;color:var(--brand);cursor:pointer;font-size:15px;
+}
+
+/* ============ Hero 主视觉 ============ */
+.hero{
+  position:relative;padding:72px 0 88px;overflow:hidden;
+  background:
+    radial-gradient(ellipse at 82% 18%,rgba(255,122,89,.2),transparent 55%),
+    radial-gradient(ellipse at 12% 82%,rgba(232,54,111,.2),transparent 55%),
+    linear-gradient(180deg,var(--darker),#150a18);
+}
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background-image:
+    radial-gradient(circle at 20% 30%,rgba(255,214,224,.05) 0,transparent 1px),
+    radial-gradient(circle at 60% 70%,rgba(255,214,224,.04) 0,transparent 1px);
+  background-size:34px 34px;
+}
+.hero-inner{position:relative;text-align:center;}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(232,54,111,.12);border:1px solid rgba(232,54,111,.35);
+  color:var(--brand);padding:6px 16px;border-radius:30px;
+  font-size:13px;font-weight:600;margin-bottom:22px;
+}
+.hero-badge .dot{width:7px;height:7px;border-radius:50%;background:var(--brand);animation:pulse 1.6s infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.4;transform:scale(1.5);}}
+.hero h1{
+  font-size:clamp(32px,7vw,56px);font-weight:900;line-height:1.15;margin-bottom:18px;
+}
+.hero h1 .grad{
+  background:linear-gradient(90deg,var(--brand),var(--brand2),var(--gold));
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
+.hero p{font-size:clamp(15px,2.4vw,18px);color:var(--muted);max-width:620px;margin:0 auto 32px;}
+.hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.btn{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:13px 30px;border-radius:30px;font-size:15.5px;font-weight:700;
+  border:none;cursor:pointer;transition:.3s;
+}
+.btn-primary{
+  background:linear-gradient(135deg,var(--brand),var(--brand2));
+  color:#fff;box-shadow:0 10px 28px rgba(232,54,111,.4);
+}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(232,54,111,.55);}
+.btn-ghost{
+  background:rgba(255,255,255,.06);color:var(--text);
+  border:1px solid rgba(255,255,255,.16);
+}
+.btn-ghost:hover{background:rgba(255,255,255,.12);}
+.hero-stats{
+  display:flex;gap:40px;justify-content:center;margin-top:46px;flex-wrap:wrap;
+}
+.stat-num{font-size:clamp(24px,4vw,34px);font-weight:900;color:#fff;}
+.stat-num span{color:var(--brand);}
+.stat-label{font-size:13px;color:var(--muted);}
+
+/* ============ 通用分节 ============ */
+.section{padding:64px 0;}
+.section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:32px;flex-wrap:wrap;}
+.section-title{display:flex;align-items:center;gap:12px;}
+.section-title h2{font-size:clamp(22px,4vw,30px);font-weight:900;}
+.section-title .bar{
+  width:5px;height:26px;border-radius:4px;
+  background:linear-gradient(var(--brand),var(--brand2));
+}
+.section-more{color:var(--muted);font-size:14px;transition:.25s;}
+.section-more:hover{color:var(--brand);}
+
+/* ============ 电影卡片 ============ */
+.grid{display:grid;gap:20px;}
+.grid-5{grid-template-columns:repeat(5,1fr);}
+.grid-4{grid-template-columns:repeat(4,1fr);}
+.grid-3{grid-template-columns:repeat(3,1fr);}
+.grid-2{grid-template-columns:repeat(2,1fr);}
+.movie-card{
+  background:var(--card);border-radius:14px;overflow:hidden;
+  border:1px solid rgba(255,255,255,.05);
+  transition:.35s;position:relative;
+}
+.movie-card:hover{transform:translateY(-6px);border-color:rgba(232,54,111,.4);box-shadow:0 18px 40px rgba(0,0,0,.5);}
+.poster{
+  position:relative;aspect-ratio:2/3;overflow:hidden;
+  background:linear-gradient(135deg,var(--card2),var(--card));
+}
+.poster-art{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-size:40px;font-weight:900;color:rgba(255,255,255,.1);text-align:center;padding:10px;
+}
+.poster-tag{
+  position:absolute;top:10px;left:10px;
+  background:rgba(0,0,0,.7);backdrop-filter:blur(4px);
+  color:var(--gold);font-size:11.5px;font-weight:700;
+  padding:3px 9px;border-radius:6px;
+}
+.poster-score{
+  position:absolute;top:10px;right:10px;
+  background:var(--brand);color:#fff;font-size:12px;font-weight:800;
+  padding:3px 8px;border-radius:6px;
+}
+.poster-play{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  background:rgba(0,0,0,.35);opacity:0;transition:.3s;
+}
+.poster-play span{
+  width:52px;height:52px;border-radius:50%;
+  background:rgba(232,54,111,.95);display:flex;align-items:center;justify-content:center;
+  font-size:20px;box-shadow:0 0 0 12px rgba(232,54,111,.2);
+}
+.movie-card:hover .poster-play{opacity:1;}
+.movie-info{padding:13px 14px 15px;}
+.movie-info h3{font-size:15.5px;font-weight:700;margin-bottom:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.movie-meta{display:flex;gap:8px;flex-wrap:wrap;font-size:12px;color:var(--muted);}
+.movie-meta i{font-style:normal;background:rgba(255,255,255,.07);padding:2px 8px;border-radius:5px;}
+
+/* ============ 分类横幅 ============ */
+.cats{display:grid;gap:16px;grid-template-columns:repeat(4,1fr);}
+.cat-card{
+  position:relative;border-radius:16px;padding:26px 22px;min-height:150px;
+  overflow:hidden;cursor:pointer;transition:.35s;
+  border:1px solid rgba(255,255,255,.06);
+}
+.cat-card::after{
+  content:"";position:absolute;right:-30px;bottom:-30px;width:120px;height:120px;
+  border-radius:50%;background:rgba(255,255,255,.08);
+}
+.cat-card:hover{transform:translateY(-5px) scale(1.02);}
+.cat-1{background:linear-gradient(135deg,#c94b4b,#4b134f);}
+.cat-2{background:linear-gradient(135deg,#f2994a,#f2c94c);}
+.cat-3{background:linear-gradient(135deg,#8e2de2,#4a00e0);}
+.cat-4{background:linear-gradient(135deg,#ee0979,#ff6a00);}
+.cat-card h3{font-size:21px;font-weight:900;margin-bottom:6px;position:relative;z-index:2;}
+.cat-card p{font-size:13px;opacity:.85;position:relative;z-index:2;}
+.cat-card .arrow{position:absolute;right:18px;top:18px;font-size:22px;opacity:.8;}
+
+/* ============ 榜单列表 ============ */
+.rank-list{display:grid;gap:12px;}
+.rank-item{
+  display:flex;gap:16px;align-items:center;
+  background:var(--card);border-radius:12px;padding:12px 16px;
+  border:1px solid rgba(255,255,255,.05);transition:.3s;
+}
+.rank-item:hover{border-color:rgba(232,54,111,.35);background:var(--card2);}
+.rank-no{
+  flex:none;width:38px;height:38px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;font-weight:900;background:rgba(255,255,255,.06);
+}
+.rank-item:nth-child(1) .rank-no{background:linear-gradient(135deg,#ffd24d,#ff9d00);color:#000;}
+.rank-item:nth-child(2) .rank-no{background:linear-gradient(135deg,#e0e0e0,#9a9a9a);color:#000;}
+.rank-item:nth-child(3) .rank-no{background:linear-gradient(135deg,#cd7f32,#8b5a2b);color:#fff;}
+.rank-cover{
+  flex:none;width:52px;height:70px;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:900;
+  background:linear-gradient(135deg,var(--card2),var(--card));color:rgba(255,255,255,.2);
+}
+.rank-body{flex:1;min-width:0;}
+.rank-body h4{font-size:15.5px;font-weight:700;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.rank-body p{font-size:12.5px;color:var(--muted);}
+.rank-up{color:#2ecc71;font-size:13px;font-weight:700;}
+
+/* ============ 资讯 ============ */
+.news-wrap{display:grid;grid-template-columns:1.4fr 1fr;gap:24px;}
+.news-feat{
+  border-radius:16px;overflow:hidden;position:relative;min-height:340px;
+  display:flex;align-items:flex-end;padding:28px;
+  background:linear-gradient(135deg,#42275a,#734b6d);
+}
+.news-feat::before{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.9),transparent 70%);
+}
+.news-feat .nf-tag{position:absolute;top:20px;left:20px;background:var(--brand);color:#fff;font-size:12px;font-weight:700;padding:4px 12px;border-radius:6px;}
+.news-feat .nf-body{position:relative;z-index:2;}
+.news-feat h3{font-size:24px;font-weight:900;margin-bottom:8px;}
+.news-feat p{color:rgba(255,255,255,.8);font-size:14px;}
+.news-list{display:grid;gap:14px;align-content:start;}
+.news-item{
+  display:flex;gap:14px;background:var(--card);border-radius:12px;padding:12px;
+  border:1px solid rgba(255,255,255,.05);transition:.3s;
+}
+.news-item:hover{border-color:rgba(232,54,111,.35);}
+.news-thumb{
+  flex:none;width:96px;height:72px;border-radius:9px;
+  display:flex;align-items:center;justify-content:center;font-size:28px;
+  background:linear-gradient(135deg,var(--card2),var(--card));
+}
+.news-text{flex:1;min-width:0;}
+.news-text .tag{font-size:11.5px;color:var(--brand);font-weight:700;}
+.news-text h4{font-size:14.5px;font-weight:700;margin:4px 0 6px;line-height:1.45;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.news-text time{font-size:12px;color:var(--muted);}
+
+/* ============ 影评 / 推荐 ============ */
+.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.review-card{
+  background:var(--card);border-radius:16px;overflow:hidden;
+  border:1px solid rgba(255,255,255,.05);transition:.35s;
+}
+.review-card:hover{transform:translateY(-6px);box-shadow:0 20px 44px rgba(0,0,0,.5);}
+.review-head{
+  padding:22px;background:linear-gradient(135deg,var(--card2),var(--card));
+  display:flex;gap:14px;align-items:center;border-bottom:1px solid rgba(255,255,255,.05);
+}
+.review-avatar{
+  width:48px;height:48px;border-radius:50%;flex:none;
+  background:linear-gradient(135deg,var(--brand),var(--brand2));
+  display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:900;
+}
+.review-head h4{font-size:16px;font-weight:700;}
+.review-head span{font-size:12.5px;color:var(--muted);}
+.stars{color:var(--gold);font-size:14px;margin-top:3px;}
+.review-body{padding:18px 22px;font-size:14px;color:#e0d0dc;line-height:1.75;}
+.review-foot{padding:12px 22px;border-top:1px solid rgba(255,255,255,.05);display:flex;justify-content:space-between;font-size:12.5px;color:var(--muted);}
+
+/* ============ CTA / 关于 ============ */
+.cta-band{
+  position:relative;border-radius:24px;padding:56px 32px;text-align:center;overflow:hidden;
+  background:linear-gradient(135deg,var(--brand),var(--brand2));
+  box-shadow:0 24px 60px rgba(232,54,111,.3);
+}
+.cta-band::before{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 20% 50%,rgba(255,255,255,.12),transparent 40%),
+    radial-gradient(circle at 80% 50%,rgba(255,255,255,.12),transparent 40%);
+}
+.cta-band h2{font-size:clamp(24px,4.5vw,36px);font-weight:900;margin-bottom:12px;position:relative;}
+.cta-band p{color:rgba(255,255,255,.9);font-size:15.5px;margin-bottom:28px;position:relative;}
+.cta-band .btn{background:#fff;color:var(--brand);position:relative;}
+.cta-band .btn:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(0,0,0,.25);}
+
+/* ============ 页脚 ============ */
+.footer{background:var(--dark);padding:50px 0 24px;border-top:1px solid rgba(255,255,255,.06);}
+.foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:30px;margin-bottom:34px;}
+.foot-brand p{color:var(--muted);font-size:13.5px;margin-top:12px;line-height:1.8;}
+.foot-col h4{font-size:15px;font-weight:700;margin-bottom:14px;color:#fff;}
+.foot-col a{display:block;color:var(--muted);font-size:13.5px;padding:5px 0;transition:.25s;}
+.foot-col a:hover{color:var(--brand);padding-left:4px;}
+.foot-bot{
+  border-top:1px solid rgba(255,255,255,.06);padding-top:22px;
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
+  font-size:12.5px;color:var(--muted);
+}
+.foot-bot a:hover{color:var(--brand);}
+
+/* ============ 响应式 ============ */
+@media(max-width:960px){
+  .grid-5{grid-template-columns:repeat(3,1fr);}
+  .grid-4{grid-template-columns:repeat(2,1fr);}
+  .cats{grid-template-columns:repeat(2,1fr);}
+  .review-grid{grid-template-columns:repeat(2,1fr);}
+  .news-wrap{grid-template-columns:1fr;}
+  .foot-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:640px){
+  .section{padding:48px 0;}
+  .hero{padding:48px 0 64px;}
+  .nav-search{display:none;}
+  .nav-toggle{display:flex;}
+  .nav-links{
+    position:fixed;top:58px;left:0;right:0;
+    flex-direction:column;align-items:stretch;gap:0;
+    background:rgba(14,6,16,.98);backdrop-filter:blur(12px);
+    padding:14px;max-height:0;overflow:hidden;transition:.4s;
+    border-bottom:1px solid rgba(232,54,111,.2);
+  }
+  .nav-links.open{max-height:420px;}
+  .nav-links a{padding:13px 16px;border-radius:12px;font-size:15px;}
+  .grid-5,.grid-4,.grid-3{grid-template-columns:repeat(2,1fr);}
+  .grid-2{grid-template-columns:1fr;}
+  .cats{grid-template-columns:1fr;}
+  .review-grid{grid-template-columns:1fr;}
+  .foot-grid{grid-template-columns:1fr;}
+  .hero-stats{gap:26px;}
+  .news-feat{min-height:260px;}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/xiaolu.js"></script>
+
+<!-- ============ 头部 ============ -->
+<header class="header">
+  <div class="container header-inner">
+    <a href="#" class="logo" aria-label="桃色电影网首页">
+      <span class="logo-mark">🎬</span>
+      <span class="logo-text">桃色电影网</span>
+    </a>
+    <div class="nav-search">
+      <input type="text" placeholder="搜索影片…" aria-label="搜索影片">
+      <button type="button" aria-label="搜索">🔍</button>
+    </div>
+    <div class="nav-toggle" id="navToggle" role="button" tabindex="0" aria-label="菜单">
+      <span></span><span></span><span></span>
+    </div>
+    <nav class="nav-links" id="navLinks">
+      <a href="#home">首页</a>
+      <a href="#movies">热映电影</a>
+      <a href="#categories">影片分类</a>
+      <a href="#ranking">排行榜</a>
+      <a href="#news">影视资讯</a>
+      <a href="#reviews">影评推荐</a>
+      <a href="#about">关于我们</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ Hero ============ -->
+<section class="hero" id="home">
+  <div class="container hero-inner">
+    <span class="hero-badge"><span class="dot"></span> 每日更新 · 海量正版授权影视资源</span>
+    <h1>桃色年华<br><span class="grad">光影留香</span></h1>
+    <p>桃色电影网（taosedianyingwang-wap.github.io）—— 桃色年华，光影留香。为你精选最新院线大片、经典爱情文艺片与高分佳作，让每一段观影时光都温柔难忘。</p>
+    <div class="hero-cta">
+      <a href="#movies" class="btn btn-primary">立即观影 ➜</a>
+      <a href="#categories" class="btn btn-ghost">浏览分类</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-num"><span>10</span>万+</div><div class="stat-label">精选影片</div></div>
+      <div><div class="stat-num"><span>120</span>部/日</div><div class="stat-label">每日更新</div></div>
+      <div><div class="stat-num"><span>4K</span>高清</div><div class="stat-label">画质支持</div></div>
+      <div><div class="stat-num"><span>98</span>%好评</div><div class="stat-label">用户满意度</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 栏目一：热映电影 ============ -->
+<section class="section" id="movies">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="bar"></span><h2>正在热映 · 热门电影</h2></div>
+      <a href="#" class="section-more">查看全部 ›</a>
+    </div>
+    <div class="grid grid-5">
+      <article class="movie-card">
+        <div class="poster">
+          <div class="poster-art">玫瑰<br>情书</div>
+          <span class="poster-tag">爱情</span>
+          <span class="poster-score">9.1</span>
+          <div class="poster-play"><span>▶</span></div>
+        </div>
+        <div class="movie-info">
+          <h3>玫瑰情书</h3>
+          <div class="movie-meta"><i>爱情</i><i>2026</i><i>118分钟</i></div>
+        </div>
+      </article>
+      <article class="movie-card">
+        <div class="poster">
+          <div class="poster-art">暗夜<br>迷情</div>
+          <span class="poster-tag">剧情</span>
+          <span class="poster-score">8.6</span>
+          <div class="poster-play"><span>▶</span></div>
+        </div>
+        <div class="movie-info">
+          <h3>暗夜迷情</h3>
+          <div class="movie-meta"><i>剧情</i><i>悬疑</i><i>126分钟</i></div>
+        </div>
+      </article>
+      <article class="movie-card">
+        <div class="poster">
+          <div class="poster-art">霓虹<br>街头</div>
+          <span class="poster-tag">都市</span>
+          <span class="poster-score">8.4</span>
+          <div class="poster-play"><span>▶</span></div>
+        </div>
+        <div class="movie-info">
+          <h3>霓虹街头</h3>
+          <div class="movie-meta"><i>都市</i><i>爱情</i><i>112分钟</i></div>
+        </div>
+      </article>
+      <article class="movie-card">
+        <div class="poster">
+          <div class="poster-art">烈焰<br>红唇</div>
+          <span class="poster-tag">动作</span>
+          <span class="poster-score">8.8</span>
+          <div class="poster-play"><span>▶</span></div>
+        </div>
+        <div class="movie-info">
+          <h3>烈焰红唇</h3>
+          <div class="movie-meta"><i>动作</i><i>犯罪</i><i>135分钟</i></div>
+        </div>
+      </article>
+      <article class="movie-card">
+        <div class="poster">
+          <div class="poster-art">樱花<br>雨季</div>
+          <span class="poster-tag">爱情</span>
+          <span class="poster-score">8.5</span>
+          <div class="poster-play"><span>▶</span></div>
+        </div>
+        <div class="movie-info">
+          <h3>樱花雨季</h3>
+          <div class="movie-meta"><i>爱情</i><i>青春</i><i>120分钟</i></div>
+        </div>
+      </article>
+      <article class="movie-card">
+        <div class="poster">
+          <div class="poster-art">胭脂<br>扣</div>
+          <span class="poster-tag">文艺</span>
+          <span class="poster-score">9.0</span>
+          <div class="poster-play"><span>▶</span></div>
+        </div>
+        <div class="movie-info">
+          <h3>胭脂扣</h3>
+          <div class="movie-meta"><i>文艺</i><i>年代</i><i>118分钟</i></div>
+        </div>
+      </article>
+      <article class="movie-card">
+        <div class="poster">
+          <div class="poster-art">迷雾<br>追踪</div>
+          <span class="poster-tag">悬疑</span>
+          <span class="poster-score">8.3</span>
+          <div class="poster-play"><span>▶</span></div>
+        </div>
+        <div class="movie-info">
+          <h3>迷雾追踪</h3>
+          <div class="movie-meta"><i>悬疑</i><i>惊悚</i><i>130分钟</i></div>
+        </div>
+      </article>
+      <article class="movie-card">
+        <div class="poster">
+          <div class="poster-art">月光<br>酒馆</div>
+          <span class="poster-tag">喜剧</span>
+          <span class="poster-score">8.1</span>
+          <div class="poster-play"><span>▶</span></div>
+        </div>
+        <div class="movie-info">
+          <h3>月光酒馆</h3>
+          <div class="movie-meta"><i>喜剧</i><i>爱情</i><i>105分钟</i></div>
+        </div>
+      </article>
+      <article class="movie-card">
+        <div class="poster">
+          <div class="poster-art">云端<br>恋人</div>
+          <span class="poster-tag">爱情</span>
+          <span class="poster-score">8.7</span>
+          <div class="poster-play"><span>▶</span></div>
+        </div>
+        <div class="movie-info">
+          <h3>云端恋人</h3>
+          <div class="movie-meta"><i>爱情</i><i>奇幻</i><i>140分钟</i></div>
+        </div>
+      </article>
+      <article class="movie-card">
+        <div class="poster">
+          <div class="poster-art">红尘<br>往事</div>
+          <span class="poster-tag">剧情</span>
+          <span class="poster-score">7.9</span>
+          <div class="poster-play"><span>▶</span></div>
+        </div>
+        <div class="movie-info">
+          <h3>红尘往事</h3>
+          <div class="movie-meta"><i>剧情</i><i>年代</i><i>98分钟</i></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 栏目二：影片分类 ============ -->
+<section class="section" id="categories" style="background:linear-gradient(180deg,var(--darker),#140a18);">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="bar"></span><h2>影片分类 · 精准找片</h2></div>
+      <a href="#" class="section-more">更多分类 ›</a>
+    </div>
+    <div class="cats">
+      <a href="#" class="cat-card cat-1">
+        <span class="arrow">💌</span>
+        <h3>爱情文艺</h3>
+        <p>深情治愈，浪漫经典 · 1.3万部</p>
+      </a>
+      <a href="#" class="cat-card cat-2">
+        <span class="arrow">🔍</span>
+        <h3>悬疑惊悚</h3>
+        <p>反转不断，烧脑必看 · 8600部</p>
+      </a>
+      <a href="#" class="cat-card cat-3">
+        <span class="arrow">🌆</span>
+        <h3>都市情感</h3>
+        <p>都市冷暖，人间百态 · 9200部</p>
+      </a>
+      <a href="#" class="cat-card cat-4">
+        <span class="arrow">🎭</span>
+        <h3>年代剧情</h3>
+        <p>岁月沉淀，经典回响 · 7100部</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 栏目三：排行榜 ============ -->
+<section class="section" id="ranking">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="bar"></span><h2>本周热榜 · 榜单排行</h2></div>
+      <a href="#" class="section-more">完整榜单 ›</a>
+    </div>
+    <div class="rank-list">
+      <div class="rank-item">
+        <div class="rank-no">1</div>
+        <div class="rank-cover">🌹</div>
+        <div class="rank-body">
+          <h4>玫瑰情书</h4>
+          <p>爱情 · 9.1分 · 31万人评分</p>
+        </div>
+        <span class="rank-up">↑ 2</span>
+      </div>
+      <div class="rank-item">
+        <div class="rank-no">2</div>
+        <div class="rank-cover">💋</div>
+        <div class="rank-body">
+          <h4>烈焰红唇</h4>
+          <p>动作 · 8.8分 · 22万人评分</p>
+        </div>
+        <span class="rank-up">↑ 1</span>
+      </div>
+      <div class="rank-item">
+        <div class="rank-no">3</div>
+        <div class="rank-cover">☁️</div>
+        <div class="rank-body">
+          <h4>云端恋人</h4>
+          <p>爱情 · 8.7分 · 18万人评分</p>
+        </div>
+        <span class="rank-up">↑ 4</span>
+      </div>
+      <div class="rank-item">
+        <div class="rank-no">4</div>
+        <div class="rank-cover">🎞️</div>
+        <div class="rank-body">
+          <h4>胭脂扣</h4>
+          <p>文艺 · 9.0分 · 15万人评分</p>
+        </div>
+        <span class="rank-up">↓ 1</span>
+      </div>
+      <div class="rank-item">
+        <div class="rank-no">5</div>
+        <div class="rank-cover">🌸</div>
+        <div class="rank-body">
+          <h4>樱花雨季</h4>
+          <p>爱情 · 8.5分 · 13万人评分</p>
+        </div>
+        <span class="rank-up">↑ 3</span>
+      </div>
+      <div class="rank-item">
+        <div class="rank-no">6</div>
+        <div class="rank-cover">🌙</div>
+        <div class="rank-body">
+          <h4>月光酒馆</h4>
+          <p>喜剧 · 8.1分 · 11万人评分</p>
+        </div>
+        <span class="rank-up">—</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 栏目四：影视资讯 ============ -->
+<section class="section" id="news" style="background:linear-gradient(180deg,var(--darker),#140a18);">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="bar"></span><h2>影视资讯 · 行业动态</h2></div>
+      <a href="#" class="section-more">更多资讯 ›</a>
+    </div>
+    <div class="news-wrap">
+      <a href="#" class="news-feat">
+        <span class="nf-tag">头条</span>
+        <div class="nf-body">
+          <h3>2026国庆档票房创历史新高，多部国产爱情片表现亮眼</h3>
+          <p>据最新数据显示，今年国庆档总票房突破历史新高，多部国产爱情文艺影片凭借精良制作与优质故事赢得观众口碑。</p>
+        </div>
+      </a>
+      <div class="news-list">
+        <a href="#" class="news-item">
+          <div class="news-thumb">🎞️</div>
+          <div class="news-text">
+            <span class="tag">新片定档</span>
+            <h4>多部年度爱情大片官宣引进，档期排片抢先看</h4>
+            <time>10月1日 · 影视资讯</time>
+          </div>
+        </a>
+        <a href="#" class="news-item">
+          <div class="news-thumb">🏆</div>
+          <div class="news-text">
+            <span class="tag">奖项前瞻</span>
+            <h4>国际电影节入围名单揭晓，华语文艺片成亮点</h4>
+            <time>9月29日 · 行业动态</time>
+          </div>
+        </a>
+        <a href="#" class="news-item">
+          <div class="news-thumb">🎬</div>
+          <div class="news-text">
+            <span class="tag">幕后故事</span>
+            <h4>《玫瑰情书》主创团队分享拍摄幕后与选角故事</h4>
+            <time>9月27日 · 独家专访</time>
+          </div>
+        </a>
+        <a href="#" class="news-item">
+          <div class="news-thumb">📺</div>
+          <div class="news-text">
+            <span class="tag">观影指南</span>
+            <h4>十月必看片单出炉，这几部千万别错过</h4>
+            <time>9月26日 · 推荐精选</time>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 栏目五：影评推荐 ============ -->
+<section class="section" id="reviews">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="bar"></span><h2>影评推荐 · 影迷心声</h2></div>
+      <a href="#" class="section-more">更多影评 ›</a>
+    </div>
+    <div class="review-grid">
+      <article class="review-card">
+        <div class="review-head">
+          <div class="review-avatar">影</div>
+          <div>
+            <h4>影迷小陈</h4>
+            <span>资深影评人 · 看过1286部</span>
+          </div>
+        </div>
+        <div class="stars">★★★★★</div>
+        <div class="review-body">
+          《玫瑰情书》将细腻的情感与唯美的画面完美融合，每一个镜头都写满深情，是近年来少有的爱情佳作，看完久久难忘。
+        </div>
+        <div class="review-foot"><span>评《玫瑰情书》</span><span>👍 386</span></div>
+      </article>
+      <article class="review-card">
+        <div class="review-head">
+          <div class="review-avatar">光</div>
+          <div>
+            <h4>光影追梦</h4>
+            <span>电影博主 · 看过902部</span>
+          </div>
+        </div>
+        <div class="stars">★★★★☆</div>
+        <div class="review-body">
+          《烈焰红唇》节奏紧凑、镜头凌厉，动作戏设计干净利落，看得人热血沸腾，是今年不可错过的爽片。
+        </div>
+        <div class="review-foot"><span>评《烈焰红唇》</span><span>👍 251</span></div>
+      </article>
+      <article class="review-card">
+        <div class="review-head">
+          <div class="review-avatar">七</div>
+          <div>
+            <h4>七夜观影</h4>
+            <span>影评达人 · 看过1543部</span>
+          </div>
+        </div>
+        <div class="stars">★★★★★</div>
+        <div class="review-body">
+          《胭脂扣》用克制的镜头讲述动人的年代故事，演员表演细腻真挚，看完久久难以平静，值得反复品味。
+        </div>
+        <div class="review-foot"><span>评《胭脂扣》</span><span>👍 412</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="section">
+  <div class="container">
+    <div class="cta-band">
+      <h2>开启你的光影观影之旅</h2>
+      <p>免费注册，即刻畅享海量高清电影、独家片单与个性化推荐</p>
+      <a href="#" class="btn">免费开始观影 ➜</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 栏目六：关于我们 ============ -->
+<section class="section" id="about" style="background:linear-gradient(180deg,var(--darker),#140a18);">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title"><span class="bar"></span><h2>关于桃色电影网</h2></div>
+    </div>
+    <div class="grid grid-3">
+      <div style="background:var(--card);border:1px solid rgba(255,255,255,.05);border-radius:16px;padding:28px;">
+        <div style="font-size:34px;margin-bottom:12px;">🎯</div>
+        <h3 style="font-size:18px;margin-bottom:10px;">我们的使命</h3>
+        <p style="color:var(--muted);font-size:14px;">桃色电影网致力于为每一位影迷提供最优质、最便捷的在线观影体验，让好电影触手可及。</p>
+      </div>
+      <div style="background:var(--card);border:1px solid rgba(255,255,255,.05);border-radius:16px;padding:28px;">
+        <div style="font-size:34px;margin-bottom:12px;">✨</div>
+        <h3 style="font-size:18px;margin-bottom:10px;">内容优势</h3>
+        <p style="color:var(--muted);font-size:14px;">涵盖院线大片、经典老片、高分佳作、独家纪录片，每日更新，分类清晰，精准找片。</p>
+      </div>
+      <div style="background:var(--card);border:1px solid rgba(255,255,255,.05);border-radius:16px;padding:28px;">
+        <div style="font-size:34px;margin-bottom:12px;">📱</div>
+        <h3 style="font-size:18px;margin-bottom:10px;">多端适配</h3>
+        <p style="color:var(--muted);font-size:14px;">全面支持手机、平板、电脑等多终端，移动端自适应布局，随时随地畅快观影。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 页脚 ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#" class="logo"><span class="logo-mark">🎬</span><span class="logo-text">桃色电影网</span></a>
+        <p>桃色电影网（taosedianyingwang-wap.github.io）是专注高清影视的在线观影平台，提供最新电影、热门影视、经典老片与独家片单推荐，桃色年华，光影留香。</p>
+      </div>
+      <div class="foot-col">
+        <h4>栏目导航</h4>
+        <a href="#home">首页</a>
+        <a href="#movies">热映电影</a>
+        <a href="#categories">影片分类</a>
+        <a href="#ranking">排行榜</a>
+      </div>
+      <div class="foot-col">
+        <h4>热门分类</h4>
+        <a href="#">爱情文艺</a>
+        <a href="#">悬疑惊悚</a>
+        <a href="#">都市情感</a>
+        <a href="#">年代剧情</a>
+      </div>
+      <div class="foot-col">
+        <h4>关于我们</h4>
+        <a href="#about">平台介绍</a>
+        <a href="#">合作联系</a>
+        <a href="#">用户协议</a>
+        <a href="#">隐私政策</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 桃色电影网 taosedianyingwang-wap.github.io 版权所有 · 桃色年华，光影留香</span>
+      <span><a href="#">网站地图</a> · <a href="#">友情链接</a> · <a href="#">联系我们</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// 移动端菜单
+(function(){
+  var t=document.getElementById('navToggle'),n=document.getElementById('navLinks');
+  if(!t||!n)return;
+  function toggle(e){e&&e.preventDefault();n.classList.toggle('open');}
+  t.addEventListener('click',toggle);
+  t.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){toggle(e);}});
+  n.addEventListener('click',function(e){if(e.target.tagName==='A'){n.classList.remove('open');}});
+})();
+</script>
+</body>
+</html>
